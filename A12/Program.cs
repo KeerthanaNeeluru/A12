@@ -19,33 +19,26 @@ namespace A12
         }
         public static bool ContainsEmailAddresses(string inputText)
         {
-            // Regular expression pattern for email validation
+           
             string emailPattern = @"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b";
 
-            // Create a regular expression object with the pattern
             Regex regex = new Regex(emailPattern);
 
-            // Use Matches method to find matches in the input text
             MatchCollection matches = regex.Matches(inputText);
 
-            // Return true if at least one match is found, indicating the presence of an email address
             return matches.Count > 0;
         }
         public static string[] mobile(string inputText)
         {
-            // Regular expression pattern for mobile number extraction (10 digits)
-            string mobileNumberPattern = @"\b\d{10}\b";
+            string numpattern = @"\b\d{10}\b";
 
-            // Create a regular expression object with the pattern
-            Regex regex = new Regex(mobileNumberPattern);
+         
+            Regex regex = new Regex(numpattern);
 
-            // Use Matches method to find matches in the input text
             MatchCollection matches = regex.Matches(inputText);
 
-            // Create an array to store the extracted mobile numbers
             string[] mobileNumbers = new string[matches.Count];
 
-            // Extract and store the mobile numbers from the MatchCollection into the array
             for (int i = 0; i < matches.Count; i++)
             {
                 mobileNumbers[i] = matches[i].Value;
@@ -57,13 +50,10 @@ namespace A12
         {
             try
             {
-                // Create a regular expression object with the custom pattern
                 Regex regex = new Regex(regexPattern);
 
-                // Use Matches method to find matches in the input text
                 MatchCollection matches = regex.Matches(inputText);
 
-                // Display the matches found
                 if (matches.Count > 0)
                 {
                     Console.WriteLine("Matches found:");
